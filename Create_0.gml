@@ -1,2 +1,4 @@
-/// @description variaveis e etc
-valor = 0;
+/// @description variaveis
+
+image_blend = c_purple;
+
