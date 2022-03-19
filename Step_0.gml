@@ -1,28 +1,27 @@
-/// @description a camera em ação!
+/// @description Girando
+
+//Mudando a rotação e seu valor
+rot += spd * direcao;
+//Girando os filhos do control
+
+for (var i = 0; i < pedaco; i++;)
+{
+	var xx = lengthdir_x(dist,rot + i*ang);
+	var yy = lengthdir_y(dist,rot + i*ang);
+	
+	filhos[i].image_angle = (i * ang + 90) + rot;
+	filhos[i].x = x + xx;
+	filhos[i].y = y + yy;
+}
+
+
+
+//Me destruindo
 
 if (instance_exists(obj_player))
 {
-	alvo = obj_player;
-}
-else
-{
-	alvo = self;	
-}
-
-
-//Impedindo que a camera volte
-
-var yy = lerp(y, alvo.y, .1);
-
-x = lerp(x, alvo.x, .1);
-y = max(y,yy);
-
-//Reiniciando o jogo
-if (alvo.y < y - 550) room_restart();
-
-//Aumentando o tamanho da room
-
-if (y + 500 >= room_height)
-{
-	room_height += 1000;	
+	if (obj_player.y > y + 600)
+	{
+		instance_destroy();
+	}
 }
